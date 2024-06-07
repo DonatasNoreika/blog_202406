@@ -12,6 +12,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['-date']
+
 
 class Comment(models.Model):
     post = models.ForeignKey(to="Post", verbose_name="Post", on_delete=models.CASCADE)
