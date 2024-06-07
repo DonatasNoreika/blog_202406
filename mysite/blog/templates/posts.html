@@ -11,6 +11,7 @@
             <small class="text-muted">{{ post.date|date:"Y-m-d, f" }}</small>
             <h2><a class="class-article">{{ post.title }}</a></h2>
             <p class="class-content">{{ post.content|truncatewords:"30" }} <a href="{% url 'post' post.pk %}">Read More</a></p>
+            <a>Comments: {{ post.comments_count }}</a>
             <hr>
         </div>
     </div>

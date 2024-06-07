@@ -11,11 +11,15 @@
             <h2><a class="class-article">{{ post.title }}</a></h2>
             <p class="class-content">{{ post.content }}</p>
             <hr>
-            <h4>Comments:</h4>
+            <h4>Comments ({{ post.comments_count }}):</h4>
+            {% if post.comments.all %}
             {% for comment in post.comments.all %}
             <small class="text-muted">{{ comment.author }}, {{ comment.date|date:"Y-m-d, f" }}</small>
             <p>{{ comment.content }}</p>
             {% endfor %}
+            {% else %}
+            <p>No comments</p>
+            {% endif %}
         </div>
     </div>
 </article>

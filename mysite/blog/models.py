@@ -9,6 +9,9 @@ class Post(models.Model):
     date = models.DateTimeField(verbose_name="Date", auto_now_add=True)
     author = models.ForeignKey(to=User, verbose_name="Author", on_delete=models.SET_NULL, null=True, blank=True)
 
+    def comments_count(self):
+        return len(self.comments.all())
+
     def __str__(self):
         return self.title
 
