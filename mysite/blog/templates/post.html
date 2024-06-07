@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 
-{% block "title" %}Posts{% endblock %}
+{% block "title" %}Post{% endblock %}
 
 {% block "content" %}
-{% for post in posts %}
 <article class="media content-section">
     <div class="media-body">
         <div class="article-metadata">
             <a class="mr-2">{{ post.author }}</a>
             <small class="text-muted">{{ post.date|date:"Y-m-d, f" }}</small>
-            <h2><a href="{% url 'post' post.pk %}" class="class-article">{{ post.title }}</a></h2>
+            <h2><a class="class-article">{{ post.title }}</a></h2>
             <p class="class-content">{{ post.content }}</p>
             <hr>
+            <h4>Comments:</h4>
+            {% for comment in post.comments.all %}
+            <small class="text-muted">{{ comment.author }}, {{ comment.date|date:"Y-m-d, f" }}</small>
+            <p>{{ comment.content }}</p>
+            {% endfor %}
         </div>
     </div>
 </article>
-{% endfor %}
 {% endblock %}
