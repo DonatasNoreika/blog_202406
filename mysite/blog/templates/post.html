@@ -12,6 +12,18 @@
             <p class="class-content">{{ post.content | safe }}</p>
             <hr>
             <h4>Comments ({{ post.comments_count }}):</h4>
+            {% if user.is_authenticated %}
+            <div class="fieldWrapper">
+                <hr>
+                <br/>
+                <h5>Leave a Comment:</h5>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.content }}<br/>
+                    <input type="submit" value="Post">
+                </form>
+            </div>
+            {% endif %}
             {% if post.comments.all %}
             {% for comment in post.comments.all %}
             <small class="text-muted">{{ comment.author }}, {{ comment.date|date:"Y-m-d, f" }}</small>
