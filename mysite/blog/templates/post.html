@@ -27,7 +27,7 @@
             {% if post.comments.all %}
             {% for comment in post.comments.all %}
             <small class="text-muted">{{ comment.author }}, {{ comment.date|date:"Y-m-d, f" }}</small>
-            <p>{{ comment.content }}</p>
+            <p>{{ comment.content | safe}}</p>
             {% endfor %}
             {% else %}
             <p>No comments</p>

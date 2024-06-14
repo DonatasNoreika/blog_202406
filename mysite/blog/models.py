@@ -18,6 +18,9 @@ class Post(models.Model):
     class Meta:
         ordering = ['-date']
 
+class Photo(models.Model):
+    link = models.ImageField(verbose_name="Photo", upload_to="photos")
+
 
 class Comment(models.Model):
     post = models.ForeignKey(to="Post", verbose_name="Post", on_delete=models.CASCADE, related_name='comments')
