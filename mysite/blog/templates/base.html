@@ -70,6 +70,9 @@
 
                 {% else %}
                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Login</a>
                 </li>
                 {% endif %}
@@ -77,6 +80,21 @@
         </div>
     </div>
 </nav>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-sm">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{% if message.tags == 'error' %}danger{% elif message.tags == 'info' %}success{% endif %}"
+                 role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 <div class="container">
     {% block "content" %}{% endblock %}

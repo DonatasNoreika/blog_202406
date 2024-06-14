@@ -20,7 +20,8 @@ from .views import (PostListView,
                     PostDetailView,
                     search,
                     UserPostListView,
-                    UserCommentListView)
+                    UserCommentListView,
+                    register)
 
 urlpatterns = [
     path('', PostListView.as_view(), name="posts"),
@@ -28,4 +29,5 @@ urlpatterns = [
     path("search/", search, name="search"),
     path("userposts/", UserPostListView.as_view(), name="user_posts"),
     path("usercomments/", UserCommentListView.as_view(), name="user_comments"),
+    path('register/', register, name='register'),
 ]
