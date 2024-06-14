@@ -8,6 +8,7 @@ class PostListView(generic.ListView):
     model = Post
     context_object_name = "posts"
     template_name = "posts.html"
+    paginate_by = 5
 
 
 class PostDetailView(generic.DetailView):
