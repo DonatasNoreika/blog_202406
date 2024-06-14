@@ -9,7 +9,7 @@
             <a class="mr-2">{{ post.author }}</a>
             <small class="text-muted">{{ post.date|date:"Y-m-d, f" }}</small>
             <h2><a class="class-article">{{ post.title }}</a></h2>
-            <p class="class-content">{{ post.content }}</p>
+            <p class="class-content">{{ post.content | safe }}</p>
             <hr>
             <h4>Comments ({{ post.comments_count }}):</h4>
             {% if post.comments.all %}
