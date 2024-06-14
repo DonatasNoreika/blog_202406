@@ -57,6 +57,9 @@
                     <a class="nav-link" href="{% url 'user_posts' %}">My Posts</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_comments' %}">My Comments</a>
+                </li>
+                <li class="nav-item">
                     <a>
                         <form method="post" action="{% url 'logout' %}">
                             {% csrf_token %}

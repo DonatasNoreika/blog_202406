@@ -19,11 +19,13 @@ from django.urls import path
 from .views import (PostListView,
                     PostDetailView,
                     search,
-                    UserPostListView)
+                    UserPostListView,
+                    UserCommentListView)
 
 urlpatterns = [
     path('', PostListView.as_view(), name="posts"),
     path('posts/<int:pk>', PostDetailView.as_view(), name="post"),
     path("search/", search, name="search"),
     path("userposts/", UserPostListView.as_view(), name="user_posts"),
+    path("usercomments/", UserCommentListView.as_view(), name="user_comments"),
 ]
