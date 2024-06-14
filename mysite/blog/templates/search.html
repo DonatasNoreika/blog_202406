@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block "title" %}Paieškos rezultatai{% endblock %}
+
+{% block "content" %}
+<h1>Įrašai, rasti pagal paiešką "{{ query }}":</h1>
+<br>
+{% if posts %}
+{% for post in posts %}
+<p><a href="{% url 'post' post.pk %}">{{ post }}</a></p>
+{% endfor %}
+{% else %}
+<p>Oops. Nieko neradome.</p>
+{% endif %}
+{% endblock %}
