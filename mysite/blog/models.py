@@ -10,7 +10,7 @@ class Post(models.Model):
     author = models.ForeignKey(to=User, verbose_name="Author", on_delete=models.SET_NULL, null=True, blank=True)
 
     def comments_count(self):
-        return len(self.comments.all())
+        return self.comments.all().count()
 
     def __str__(self):
         return self.title
