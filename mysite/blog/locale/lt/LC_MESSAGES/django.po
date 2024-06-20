@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 11:35+0300\n"
-"PO-Revision-Date: 2024-06-20 11:36+0300\n"
+"POT-Creation-Date: 2024-06-20 11:42+0300\n"
+"PO-Revision-Date: 2024-06-20 11:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -93,12 +93,13 @@ msgstr "Mano komentarai"
 msgid "Logout"
 msgstr "Atsijungti"
 
-#: .\templates\base.html:92
+#: .\templates\base.html:92 .\templates\registration\register.html:29
 msgid "Register"
 msgstr "Registruotis"
 
 #: .\templates\base.html:95 .\templates\registration\login.html:3
 #: .\templates\registration\login.html:29
+#: .\templates\registration\register.html:31
 msgid "Login"
 msgstr "Prisijungti"
 
@@ -165,6 +166,46 @@ msgstr "Slaptažodis:"
 #: .\templates\registration\login.html:33
 msgid "Forgot Password?"
 msgstr "Pamiršote slaptažodį?"
+
+#: .\templates\registration\register.html:3
+msgid "Registration"
+msgstr "Registracija"
+
+#: .\templates\registration\register.html:11
+msgid "Username"
+msgstr "Vartotojo vardas"
+
+#: .\templates\registration\register.html:13
+msgid "Up to 150 characters."
+msgstr "Iki 150 simbolių."
+
+#: .\templates\registration\register.html:16
+msgid "Email"
+msgstr "El. paštas"
+
+#: .\templates\registration\register.html:18
+msgid ""
+"We will not share with anyone, we will not send any spam. Required to send a "
+"new password."
+msgstr ""
+"Nesidalinsime su niekuo, nesiųsime jokio spamo. Reikalingas naujam "
+"slaptažodžiui išsiųsti."
+
+#: .\templates\registration\register.html:21
+msgid "Password"
+msgstr "Slaptažodis"
+
+#: .\templates\registration\register.html:23
+msgid "At least 8 characters. Can't be only numbers."
+msgstr "Ne mažiau, kaip 8 simboliai. Negali būti vien tik skaičiai."
+
+#: .\templates\registration\register.html:26
+msgid "Repeat the password"
+msgstr "Pakartoti slaptažodį"
+
+#: .\templates\registration\register.html:31
+msgid "If you have registered, "
+msgstr "Jeigu užsiregistravote anksčiau, "
 
 #: .\views.py:39
 #, python-format
