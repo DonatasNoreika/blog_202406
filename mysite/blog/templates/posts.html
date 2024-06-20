@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
-{% block "title" %}Posts{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "Posts" %}{% endblock %}
 
 {% block "content" %}
 {% for post in posts %}
@@ -11,8 +11,8 @@
             <a class="mr-2">{{ post.author }}</a>
             <small class="text-muted">{{ post.date|date:"Y-m-d, f" }}</small>
             <h2><a class="class-article" href="{% url 'post' post.pk %}">{{ post.title }}</a></h2>
-            <p class="class-content">{{ post.content|truncatewords:"30"|safe }} <a href="{% url 'post' post.pk %}">Read More</a></p>
-            <a>Comments: {{ post.comments_count }}</a>
+            <p class="class-content">{{ post.content|truncatewords:"30"|safe }} <a href="{% url 'post' post.pk %}">{% trans "Read More" %}</a></p>
+            <a>{% trans "Comments:" %} {{ post.comments_count }}</a>
             <hr>
         </div>
     </div>
@@ -21,8 +21,8 @@
  <div class="pagination mb-5">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; pirmas</a>
-            <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
+            <a href="?page=1">&laquo; {% trans "First" %}</a>
+            <a href="?page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a>
         {% endif %}
 
         <span class="current">
@@ -30,8 +30,8 @@
         </span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">pirmyn</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}">{% trans "Next" %}</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last" %} &raquo;</a>
         {% endif %}
     </span>
 </div>
