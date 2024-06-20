@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 11:12+0300\n"
-"PO-Revision-Date: 2024-06-20 11:12+0300\n"
+"POT-Creation-Date: 2024-06-20 11:21+0300\n"
+"PO-Revision-Date: 2024-06-20 11:23+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -144,3 +144,22 @@ msgstr "Pirmyn"
 #: .\templates\posts.html:34
 msgid "Last"
 msgstr "Paskutinis"
+
+#: .\views.py:39
+#, python-format
+msgid "Username %s already exists!"
+msgstr "Vartotojo vardas %s užimtas!"
+
+#: .\views.py:44
+#, python-format
+msgid "Email %s already exists!"
+msgstr "Vartotojas su el. paštu %s jau užregistruotas!"
+
+#: .\views.py:56
+#, python-format
+msgid "User %s registered!"
+msgstr "Vartotojas %s užregistruotas!"
+
+#: .\views.py:59
+msgid "Passwords does not match!"
+msgstr "Slaptažodžiai nesutampa!"

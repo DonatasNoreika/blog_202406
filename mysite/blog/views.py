@@ -12,7 +12,7 @@ from django.contrib.auth.forms import User
 from .forms import (CommentForm,
                     UserUpdateForm,
                     ProfileUpdateForm)
-
+from django.utils.translation import gettext as _
 
 # Create your views here.
 
@@ -36,12 +36,12 @@ def register(request):
         if password == password2:
             # tikriname, ar neužimtas username
             if User.objects.filter(username=username).exists():
-                messages.error(request, f'Vartotojo vardas {username} užimtas!')
+                messages.error(request, _('Username %s already exists!') % username)
                 return redirect('register')
             else:
                 # tikriname, ar nėra tokio pat email
                 if User.objects.filter(email=email).exists():
-                    messages.error(request, f'Vartotojas su el. paštu {email} jau užregistruotas!')
+                    messages.error(request, _('Email %s already exists!') % email)
                     return redirect('register')
                 else:
                     try:
@@ -53,13 +53,12 @@ def register(request):
 
                     # jeigu viskas tvarkoje, sukuriame naują vartotoją
                     User.objects.create_user(username=username, email=email, password=password)
-                    messages.info(request, f'Vartotojas {username} užregistruotas!')
+                    messages.info(request, _('User %s registered!') % username)
                     return redirect('login')
         else:
-            messages.error(request, 'Slaptažodžiai nesutampa!')
+            messages.error(request, _('Passwords does not match!'))
             return redirect('register')
     return render(request, 'registration/register.html')
-
 
 @login_required
 def profile(request):
