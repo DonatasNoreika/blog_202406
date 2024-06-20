@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 11:42+0300\n"
-"PO-Revision-Date: 2024-06-20 11:43+0300\n"
+"POT-Creation-Date: 2024-06-20 11:57+0300\n"
+"PO-Revision-Date: 2024-06-20 11:58+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -81,11 +81,11 @@ msgstr "Mano tiklaraštis"
 msgid "Search"
 msgstr "Paieška"
 
-#: .\templates\base.html:76
+#: .\templates\base.html:76 .\templates\user_posts.html:3
 msgid "My Posts"
 msgstr "Mano įrašai"
 
-#: .\templates\base.html:79
+#: .\templates\base.html:79 .\templates\user_comments.html:3
 msgid "My Comments"
 msgstr "Mano komentarai"
 
@@ -102,6 +102,30 @@ msgstr "Registruotis"
 #: .\templates\registration\register.html:31
 msgid "Login"
 msgstr "Prisijungti"
+
+#: .\templates\comment_delete.html:3 .\templates\comment_delete.html:10
+msgid "Comment delete"
+msgstr "Komentaro trynimas"
+
+#: .\templates\comment_delete.html:11 .\templates\post_delete.html:11
+msgid "Want delete"
+msgstr "Norite ištrinti"
+
+#: .\templates\comment_delete.html:14 .\templates\post_delete.html:14
+msgid "YES"
+msgstr "TAIP"
+
+#: .\templates\comment_delete.html:15 .\templates\post_delete.html:15
+msgid "NO"
+msgstr "NE"
+
+#: .\templates\comment_form.html:3 .\templates\comment_form.html:10
+msgid "Comment Create/Edit"
+msgstr "Komentaro kūrimas/redagavimas"
+
+#: .\templates\comment_form.html:13 .\templates\post_form.html:13
+msgid "Save"
+msgstr "Išsaugoti"
 
 #: .\templates\post.html:16 .\templates\post.html:41
 msgid "Edit"
@@ -122,6 +146,14 @@ msgstr "Paskelbti"
 #: .\templates\post.html:47
 msgid "No comments"
 msgstr "Nėra komentarų"
+
+#: .\templates\post_delete.html:3 .\templates\post_delete.html:10
+msgid "Comment Delete"
+msgstr "Komentaro trynimas"
+
+#: .\templates\post_form.html:3 .\templates\post_form.html:10
+msgid "Post Create/Edit"
+msgstr "Įrašo kūrimas/redagavimas"
 
 #: .\templates\posts.html:14
 msgid "Read More"
@@ -146,6 +178,30 @@ msgstr "Pirmyn"
 #: .\templates\posts.html:34
 msgid "Last"
 msgstr "Paskutinis"
+
+#: .\templates\profile.html:3
+msgid "User Profile"
+msgstr "Vartotojo profilis"
+
+#: .\templates\profile.html:9
+msgid "Email:"
+msgstr "El. paštas:"
+
+#: .\templates\profile.html:10
+msgid "First Name"
+msgstr "Vardas"
+
+#: .\templates\profile.html:11
+msgid "Last Name"
+msgstr "Pavardė"
+
+#: .\templates\profile.html:16
+msgid "Profile Info"
+msgstr "Profilio Info"
+
+#: .\templates\profile.html:21
+msgid "Update"
+msgstr "Atnaujinti"
 
 #: .\templates\registration\login.html:8
 msgid "Login error, please try again!"
@@ -206,6 +262,42 @@ msgstr "Pakartoti slaptažodį"
 #: .\templates\registration\register.html:31
 msgid "If you have registered, "
 msgstr "Jeigu užsiregistravote anksčiau, "
+
+#: .\templates\search.html:3
+msgid "Search results"
+msgstr "Paieškos rezultatai"
+
+#: .\templates\search.html:6
+msgid "Search results by query"
+msgstr "Paieškos rezultatai pagal užklausą"
+
+#: .\templates\search.html:13
+msgid "Oops. Nothing found."
+msgstr "Oops. Nieko neradome."
+
+#: .\templates\user_comments.html:6
+msgid "My Comments:"
+msgstr "Mano komentarai:"
+
+#: .\templates\user_comments.html:10
+msgid "Post:"
+msgstr "Įrašas:"
+
+#: .\templates\user_comments.html:16
+msgid "No Comments."
+msgstr "Nėra komentarų."
+
+#: .\templates\user_posts.html:6
+msgid "My Posts:"
+msgstr "Mano įrašai:"
+
+#: .\templates\user_posts.html:7
+msgid "New Post"
+msgstr "Naujas įrašas"
+
+#: .\templates\user_posts.html:14
+msgid "No Posts"
+msgstr "Nėra įrašų"
 
 #: .\views.py:39
 #, python-format

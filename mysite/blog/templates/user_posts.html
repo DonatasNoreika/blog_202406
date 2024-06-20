@@ -1,16 +1,16 @@
 {% extends "base.html" %}
-
-{% block "title" %}Mano įrašai{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "My Posts" %}{% endblock %}
 
 {% block "content" %}
-<h1>Mano įrašai:</h1>
-<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_new' %}">Naujas įrašas</a>
+<h1>{% trans "My Posts:" %}</h1>
+<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_new' %}">{% trans "New Post" %}</a>
 <br>
 {% if posts %}
 {% for post in posts %}
 <p><a href="{% url 'post' post.pk %}">{{ post }}</a></p>
 {% endfor %}
 {% else %}
-<p>Oops. Nieko neradome.</p>
+<p>{% trans "No Posts" %}</p>
 {% endif %}
 {% endblock %}
