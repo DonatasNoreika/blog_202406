@@ -13,7 +13,7 @@
     <!-- Add additional CSS in static file -->
 </head>
 <body>
-
+{% load i18n %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
     <div class="container">
         <a class="navbar-brand" href="{% url 'posts' %}">
@@ -25,7 +25,7 @@
                       d="M9.854 2.56a.5.5 0 0 0-.708 0L5.854 5.855a.5.5 0 0 1-.708-.708L8.44 1.854a1.5 1.5 0 0 1 2.122 0l.293.292a.5.5 0 0 1-.707.708l-.293-.293z"/>
                 <path d="M13.293 1.207a1 1 0 0 1 1.414 0l.03.03a1 1 0 0 1 .03 1.383L13.5 4 12 2.5l1.293-1.293z"/>
             </svg>
-            My Blog
+            {% trans "My Blog" %}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
                 </li>
                 <li>
                     <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
-                        <input name="query" class="form-control" type="text" placeholder="Paieška">
+                        <input name="query" class="form-control" type="text" placeholder='{% trans "Search" %}'>
                     </form>
                 </li>
                 <li class="nav-item">
@@ -73,26 +73,26 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user_posts' %}">My Posts</a>
+                    <a class="nav-link" href="{% url 'user_posts' %}">{% trans "My Posts" %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user_comments' %}">My Comments</a>
+                    <a class="nav-link" href="{% url 'user_comments' %}">{% trans "My Comments" %}</a>
                 </li>
                 <li class="nav-item">
                     <a>
                         <form method="post" action="{% url 'logout' %}">
                             {% csrf_token %}
-                            <button class="nav-link" type="submit">Logout</button>
+                            <button class="nav-link" type="submit">{% trans "Logout" %}</button>
                         </form>
                     </a>
                 </li>
 
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    <a class="nav-link" href="{% url 'register' %}">{% trans "Register" %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
                 </li>
                 {% endif %}
             </ul>
