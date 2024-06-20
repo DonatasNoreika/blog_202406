@@ -13,7 +13,7 @@
             <hr>
             <h4>Comments ({{ post.comments_count }}):</h4>
             {% if user.is_authenticated %}
-            <div class="fieldWrapper">
+            <div class="fieldWrapper mb-2">
                 <hr>
                 <br/>
                 <h5>Leave a Comment:</h5>
@@ -26,6 +26,7 @@
             {% endif %}
             {% if post.comments.all %}
             {% for comment in post.comments.all %}
+            <img class="rounded-circle account-img" style="height: 30px" src="{{ comment.author.profile.photo.url }}">
             <small class="text-muted">{{ comment.author }}, {{ comment.date|date:"Y-m-d, f" }}</small>
             <p>{{ comment.content | safe}}</p>
             {% endfor %}
