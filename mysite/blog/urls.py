@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import (PostListView,
+from .views import (search,
+                    register,
+                    profile,
+                    PostListView,
                     PostDetailView,
-                    search,
                     UserPostListView,
-                    UserCommentListView,
-                    register)
+                    UserCommentListView)
 
 urlpatterns = [
     path('', PostListView.as_view(), name="posts"),
@@ -30,4 +31,5 @@ urlpatterns = [
     path("userposts/", UserPostListView.as_view(), name="user_posts"),
     path("usercomments/", UserCommentListView.as_view(), name="user_comments"),
     path('register/', register, name='register'),
+    path('profile/', profile, name='profile'),
 ]

@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, reverse
 from django.views import generic
 from .models import Post, Comment
@@ -105,3 +106,8 @@ def register(request):
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
     return render(request, 'registration/register.html')
+
+
+@login_required
+def profile(request):
+    return render(request, 'profile.html')
