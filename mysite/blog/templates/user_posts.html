@@ -4,6 +4,7 @@
 
 {% block "content" %}
 <h1>Mano įrašai:</h1>
+<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_new' %}">Naujas įrašas</a>
 <br>
 {% if posts %}
 {% for post in posts %}

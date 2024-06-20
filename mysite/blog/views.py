@@ -15,38 +15,6 @@ from .forms import (CommentForm,
 
 
 # Create your views here.
-class PostListView(generic.ListView):
-    model = Post
-    context_object_name = "posts"
-    template_name = "posts.html"
-    paginate_by = 5
-
-
-class PostDetailView(FormMixin, generic.DetailView):
-    model = Post
-    context_object_name = "post"
-    template_name = "post.html"
-    form_class = CommentForm
-
-    # nurodome, kur atsidursime komentaro sėkmės atveju.
-    def get_success_url(self):
-        return reverse("post", kwargs={"pk": self.object.id})
-
-    # standartinis post metodo perrašymas, naudojant FormMixin, galite kopijuoti tiesiai į savo projektą.
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        form = self.get_form()
-        if form.is_valid():
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
-
-    # štai čia nurodome, kad knyga bus būtent ta, po kuria komentuojame, o vartotojas bus tas, kuris yra prisijungęs.
-    def form_valid(self, form):
-        form.instance.post = self.object
-        form.instance.author = self.request.user
-        form.save()
-        return super().form_valid(form)
 
 
 def search(request):
@@ -54,24 +22,6 @@ def search(request):
     post_search_results = Post.objects.filter(
         Q(title__icontains=query) | Q(content__icontains=query) | Q(author__username__icontains=query))
     return render(request, 'search.html', context={"posts": post_search_results, "query": query})
-
-
-class UserPostListView(LoginRequiredMixin, generic.ListView):
-    model = Post
-    template_name = "user_posts.html"
-    context_object_name = 'posts'
-
-    def get_queryset(self):
-        return Post.objects.filter(author=self.request.user)
-
-
-class UserCommentListView(LoginRequiredMixin, generic.ListView):
-    model = Comment
-    template_name = "user_comments.html"
-    context_object_name = "comments"
-
-    def get_queryset(self):
-        return Comment.objects.filter(author=self.request.user)
 
 
 @csrf_protect
@@ -136,3 +86,67 @@ def profile(request):
         'p_form': p_form,
     }
     return render(request, "profile.html", context=context)
+
+
+class UserCommentListView(LoginRequiredMixin, generic.ListView):
+    model = Comment
+    template_name = "user_comments.html"
+    context_object_name = "comments"
+
+    def get_queryset(self):
+        return Comment.objects.filter(author=self.request.user)
+
+
+class PostListView(generic.ListView):
+    model = Post
+    context_object_name = "posts"
+    template_name = "posts.html"
+    paginate_by = 5
+
+
+class PostDetailView(FormMixin, generic.DetailView):
+    model = Post
+    context_object_name = "post"
+    template_name = "post.html"
+    form_class = CommentForm
+
+    # nurodome, kur atsidursime komentaro sėkmės atveju.
+    def get_success_url(self):
+        return reverse("post", kwargs={"pk": self.object.id})
+
+    # standartinis post metodo perrašymas, naudojant FormMixin, galite kopijuoti tiesiai į savo projektą.
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    # štai čia nurodome, kad knyga bus būtent ta, po kuria komentuojame, o vartotojas bus tas, kuris yra prisijungęs.
+    def form_valid(self, form):
+        form.instance.post = self.object
+        form.instance.author = self.request.user
+        form.save()
+        return super().form_valid(form)
+
+
+class UserPostListView(LoginRequiredMixin, generic.ListView):
+    model = Post
+    template_name = "user_posts.html"
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        return Post.objects.filter(author=self.request.user)
+
+
+class PostCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Post
+    template_name = "post_form.html"
+    success_url = "/userposts/"
+    fields = ['title', 'content']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+

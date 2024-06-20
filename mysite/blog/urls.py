@@ -22,14 +22,16 @@ from .views import (search,
                     PostListView,
                     PostDetailView,
                     UserPostListView,
-                    UserCommentListView)
+                    UserCommentListView,
+                    PostCreateView)
 
 urlpatterns = [
-    path('', PostListView.as_view(), name="posts"),
-    path('posts/<int:pk>', PostDetailView.as_view(), name="post"),
     path("search/", search, name="search"),
-    path("userposts/", UserPostListView.as_view(), name="user_posts"),
     path("usercomments/", UserCommentListView.as_view(), name="user_comments"),
     path('register/', register, name='register'),
     path('profile/', profile, name='profile'),
+    path('', PostListView.as_view(), name="posts"),
+    path('posts/<int:pk>', PostDetailView.as_view(), name="post"),
+    path("userposts/", UserPostListView.as_view(), name="user_posts"),
+    path("posts/new", PostCreateView.as_view(), name="post_new"),
 ]

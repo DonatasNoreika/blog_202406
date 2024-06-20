@@ -10,7 +10,7 @@
             <img class="rounded-circle account-img" style="height: 30px" src="{{ post.author.profile.photo.url }}">
             <a class="mr-2">{{ post.author }}</a>
             <small class="text-muted">{{ post.date|date:"Y-m-d, f" }}</small>
-            <h2><a class="class-article">{{ post.title }}</a></h2>
+            <h2><a class="class-article" href="{% url 'post' post.pk %}">{{ post.title }}</a></h2>
             <p class="class-content">{{ post.content|truncatewords:"30"|safe }} <a href="{% url 'post' post.pk %}">Read More</a></p>
             <a>Comments: {{ post.comments_count }}</a>
             <hr>
