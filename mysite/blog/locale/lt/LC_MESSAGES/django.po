@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 10:37+0300\n"
-"PO-Revision-Date: 2024-06-20 10:38+0300\n"
+"POT-Creation-Date: 2024-06-20 10:47+0300\n"
+"PO-Revision-Date: 2024-06-20 10:47+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -47,6 +47,34 @@ msgstr "Registruotis"
 #: .\templates\base.html:95
 msgid "Login"
 msgstr "Prisijungti"
+
+#: .\templates\post.html:3
+msgid "Post"
+msgstr "Post"
+
+#: .\templates\post.html:16 .\templates\post.html:41
+msgid "Edit"
+msgstr "Redaguoti"
+
+#: .\templates\post.html:17 .\templates\post.html:42
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: .\templates\post.html:21
+msgid "Comments"
+msgstr "Komentarai"
+
+#: .\templates\post.html:26
+msgid "Leave a Comment:"
+msgstr "Palikite komentarą:"
+
+#: .\templates\post.html:30
+msgid "Publish"
+msgstr "Paskelbti"
+
+#: .\templates\post.html:47
+msgid "No comments"
+msgstr "Nėra komentarų"
 
 #: .\templates\posts.html:3
 msgid "Posts"

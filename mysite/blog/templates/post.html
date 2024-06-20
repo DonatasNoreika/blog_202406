@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
-{% block "title" %}Post{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "Post" %}{% endblock %}
 
 {% block "content" %}
 <article class="media content-section">
@@ -13,21 +13,21 @@
             <p class="class-content">{{ post.content | safe }}</p>
             {% if post.author == user %}
             <div>
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_update' post.pk %}">Redaguoti</a>
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post_delete' post.pk %}">Ištrinti</a>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_update' post.pk %}">{% trans "Edit" %}</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post_delete' post.pk %}">{% trans "Delete" %}</a>
             </div>
             {% endif %}
             <hr>
-            <h4>Comments ({{ post.comments_count }}):</h4>
+            <h4>{% trans "Comments" %} ({{ post.comments_count }}):</h4>
             {% if user.is_authenticated %}
             <div class="fieldWrapper mb-2">
                 <hr>
                 <br/>
-                <h5>Leave a Comment:</h5>
+                <h5>{% trans "Leave a Comment:" %}</h5>
                 <form action="" method="post">
                     {% csrf_token %}
                     {{ form.content }}<br/>
-                    <input type="submit" value="Post">
+                    <input type="submit" value='{% trans "Publish" %}'>
                 </form>
             </div>
             {% endif %}
@@ -35,16 +35,16 @@
             {% for comment in post.comments.all %}
             <img class="rounded-circle account-img" style="height: 30px" src="{{ comment.author.profile.photo.url }}">
             <small class="text-muted">{{ comment.author }}, {{ comment.date|date:"Y-m-d, f" }}</small>
-            <p>{{ comment.content | safe}}</p>
+            <p>{{ comment.content | safe }}</p>
             {% if comment.author == user %}
             <div>
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'comment_update' post.pk comment.pk %}">Redaguoti</a>
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'comment_delete' post.pk comment.pk %}">Ištrinti</a>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'comment_update' post.pk comment.pk %}">{% trans "Edit" %}</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'comment_delete' post.pk comment.pk %}">{% trans "Delete" %}</a>
             </div>
             {% endif %}
             {% endfor %}
             {% else %}
-            <p>No comments</p>
+            <p>{% trans "No comments" %}</p>
             {% endif %}
         </div>
     </div>
