@@ -19,6 +19,7 @@ from .my_settings import (SECRET_KEY,
                           STATICFILES_DIRS,
                           STATIC_ROOT)
 from django.utils.translation import gettext_lazy as _
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -180,3 +181,6 @@ TINYMCE_DEFAULT_CONFIG = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/media')
+
+MEDIA_URL = '/media/'
