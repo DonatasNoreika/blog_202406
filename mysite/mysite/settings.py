@@ -14,7 +14,8 @@ from pathlib import Path
 from .my_settings import (SECRET_KEY,
                           EMAIL_HOST_USER,
                           EMAIL_HOST_PASSWORD,
-                          DEBUG, ALLOWED_HOSTS,
+                          DEBUG,
+                          ALLOWED_HOSTS,
                           STATICFILES_DIRS,
                           STATIC_ROOT)
 from django.utils.translation import gettext_lazy as _
